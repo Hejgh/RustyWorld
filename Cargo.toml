@@ -10,7 +10,7 @@ bevy = "0.13"  # Note: Bevy 0.18 doesn't exist yet, latest stable is 0.13
 
 # FastNoise2 for terrain generation (use FastNoiseLite which is simpler)
 # Note: fastnoise2 crate has complex bindings, using fastnoise-lite instead
-fastnoise-lite = "2.0"
+fastnoise-lite = "1.1.1"
 
 # Random number generation for mob spawning
 rand = "0.8"
@@ -22,11 +22,11 @@ bevy_rapier3d = "0.26"        # Physics/collision (if needed for mob movement)
 # If you absolutely need the actual FastNoise2 bindings:
 # fastnoise2 = "0.2"  # Requires C++ FastNoise2 library installed
 
-# For async chunk generation (optional performance boost)
-# bevy_tasks = "0.13"
+# For async chunk generation (optional performance 
+bevy_tasks = "0.13"
 
-# For better performance with many entities
-# bevy_hierarchy = "0.13"
+# For better performance with many 
+bevy_hierarchy = "0.13"
 
 [profile.dev]
 opt-level = 1  # Slightly optimize debug builds
