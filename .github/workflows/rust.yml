@@ -5,23 +5,24 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      CARGO_INCREMENTAL: 0
     steps:
       - uses: actions/checkout@v4
 
+      # 1. Install all system dependencies at once to avoid redundant updates
       - name: Install System Dependencies
-        run: sudo apt-get update && sudo apt-get install -y libasound2-dev libudev-dev lld
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libasound2-dev libudev-dev lld
 
+      # 2. Cache your dependencies so they don't recompile every single time
       - uses: swatinem/rust-cache@v2
-      
-      # ADD THIS STEP HERE
-      - name: Install ALSA dependencies
-        run: sudo apt-get update && sudo apt-get install -y libasound2-dev
-        
-      - name: Install System Dependencies
-        run: sudo apt-get install -y libasound2-dev libudev-dev
 
+      # 3. Install the Rust toolchain
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
         
+      # 4. Build the project
       - name: Build
         run: cargo build --verbose
