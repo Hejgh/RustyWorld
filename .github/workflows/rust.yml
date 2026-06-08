@@ -11,7 +11,10 @@ jobs:
       # ADD THIS STEP HERE
       - name: Install ALSA dependencies
         run: sudo apt-get update && sudo apt-get install -y libasound2-dev
-      
+        
+      - name: Install System Dependencies
+        run: sudo apt-get install -y libasound2-dev libudev-dev
+
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
         
