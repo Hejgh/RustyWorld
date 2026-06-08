@@ -4,33 +4,9 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-# Core Bevy engine
-bevy = "0.13"  # Note: Bevy 0.18 doesn't exist yet, latest stable is 0.13
-                # If you meant 0.14 dev, adjust accordingly
-
-# FastNoise2 for terrain generation (use FastNoiseLite which is simpler)
-# Note: fastnoise2 crate has complex bindings, using fastnoise-lite instead
+bevy = "0.13.0"
 fastnoise-lite = "1.1.1"
+rand = "0.8.5"
 
-# Random number generation for mob spawning
-rand = "0.8"
-
-# Optional but recommended utilities
-bevy-inspector-egui = "0.25"  # Debug UI
-bevy_rapier3d = "0.26"        # Physics/collision (if needed for mob movement)
-
-# If you absolutely need the actual FastNoise2 bindings:
-# fastnoise2 = "0.2"  # Requires C++ FastNoise2 library installed
-
-# For async chunk generation (optional performance 
-bevy_tasks = "0.13"
-
-# For better performance with many 
-bevy_hierarchy = "0.13"
-
-[profile.dev]
-opt-level = 1  # Slightly optimize debug builds
-
-[profile.release]
-opt-level = 3
-lto = true  # Link-time optimization for smaller/faster binary
+# Remove bevy-inspector-egui for now (causing version conflicts)
+# bevy-inspector-egui = "0.25.0"
