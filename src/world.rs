@@ -1,5 +1,5 @@
 use bevy::prelude::*;
-use fastnoise2::{FastNoiseLite, NoiseLite};
+use fastnoise_lite::*;
 use std::collections::HashMap;
 
 // ============ BLOCK PALETTE ============
